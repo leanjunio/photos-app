@@ -1,10 +1,7 @@
 import './App.css';
 import { Photos } from './Photos';
 import { usePhotosStore } from './photos';
-
-function bytesToMB(bytes: number) {
-  return (bytes / 1000000).toFixed(1);
-}
+import { bytesToMB } from './utils';
 
 function displayFullDate(date: string) {
   const dateObj = new Date(date);

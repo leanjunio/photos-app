@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import { usePhotosStore } from "./photos";
-
-function bytesToMB(bytes: number) {
-  return (bytes / 1000000).toFixed(1);
-}
+import { bytesToMB } from "./utils";
 
 export function Photos() {
   const [clicked, setClicked] = useState('');
