@@ -45,24 +45,19 @@
   justify-content: center;
 }
 
-.photos {
+.photo-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 30px;
   row-gap: 30px;
 }
 
-.photo-container {
+.photo-grid__wrapper {
   height: 220px;
   width: 200px;
 }
 
-.photo.clicked {
-  border: 2px solid #4f47dc;
-  padding: 2px;
-}
-
-.photo {
+.photo-grid__img {
   object-fit: cover;
   height: 150px;
   width: 195px;
@@ -71,6 +66,11 @@
   border: 2px solid #f7fafc;
   max-width: 100%;
   max-height: 100%;
+}
+
+.photo-grid__img--selected {
+  border: 2px solid #4f47dc;
+  padding: 2px;
 }
 
 .sidebar {

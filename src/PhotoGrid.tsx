@@ -5,17 +5,16 @@ import { bytesToMB } from "./utils";
 type PhotoGridProps = {
   currentList: Photo[];
   onPhotoSelect: (id: string) => void;
-  selectedPhoto?: string;
 }
 
-export function PhotoGrid({ currentList, onPhotoSelect, selectedPhoto }: PhotoGridProps) {
+export function PhotoGrid({ currentList, onPhotoSelect }: PhotoGridProps) {
   const current = usePhotosStore(state => state.current);
   return (
     <div aria-label="photo grid" className="content">
-      <div className="photos">
+      <div className="photo-grid">
         {currentList.map((photo) => (
-          <div key={photo.id} className="photo-container" onClick={() => onPhotoSelect(photo.id)}>
-            <img className={`photo ${current === photo.id ? 'clicked' : ''}`} src={photo.url} alt={photo.filename} />
+          <div key={photo.id} className="photo-grid__wrapper" onClick={() => onPhotoSelect(photo.id)}>
+            <img className={`photo-grid__img ${current === photo.id ? 'photo-grid__img--selected' : ''}`} src={photo.url} alt={photo.filename} />
             <FileDetails
               filename={photo.filename}
               size={bytesToMB(photo.sizeInBytes)}
