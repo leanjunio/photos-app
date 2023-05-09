@@ -3,6 +3,7 @@ import { usePhotosStore } from "./photos";
 import { bytesToMB } from "./utils";
 import { FileDetails } from "./FileDetails";
 import { Tab } from "./components/Tab/Tab";
+import { PhotoGrid } from "./PhotoGrid";
 
 export function Photos() {
   const [clicked, setClicked] = useState('');
@@ -42,19 +43,7 @@ export function Photos() {
     <div className="page">
       <h1>Photos</h1>
       <Tab tabs={tabs} activeTab={activeTab} onTabChange={changeTab} />
-      <div className="content">
-        <div className="photos">
-          {currentList.map((photo) => (
-            <div key={photo.id} className="photo-container" onClick={() => onSelect(photo.id)}>
-              <img className={`photo ${clicked === photo.id ? 'clicked' : ''}`} src={photo.url} alt={photo.filename} />
-              <FileDetails
-                filename={photo.filename}
-                size={bytesToMB(photo.sizeInBytes)}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
+      <PhotoGrid currentList={currentList} onPhotoSelect={onSelect} selectedPhoto={clicked} />
     </div>
   );
 }
