@@ -10,7 +10,7 @@ type SidebarProps = {
 }
 
 export function Sidebar({ currentPhoto }: SidebarProps) {
-  const { deletePhoto, like } = usePhotosStore(state => ({ deletePhoto: state.deletePhoto, like: state.like }));
+  const { deletePhoto, toggleLike } = usePhotosStore(state => ({ deletePhoto: state.deletePhoto, toggleLike: state.toggleLike }));
 
   const infoSectionData = [
     {
@@ -40,7 +40,6 @@ export function Sidebar({ currentPhoto }: SidebarProps) {
     )
   }
 
-  console.log({ favorited: currentPhoto.favorited })
   return (
     <div aria-label="sidebar">
       <img className='highlight' src={currentPhoto.url} alt={currentPhoto.filename} />
@@ -50,7 +49,7 @@ export function Sidebar({ currentPhoto }: SidebarProps) {
           size={bytesToMB(currentPhoto.sizeInBytes)}
         />
         <div>
-          <button onClick={() => like(currentPhoto.id)}>
+          <button onClick={() => toggleLike(currentPhoto.id)}>
             <Like stroke="#4f47dc" fill={currentPhoto.favorited ? '#4f47dc' : 'none'} />
           </button>
         </div>

@@ -30,7 +30,7 @@ type PhotosState = {
   loading: boolean;
   photos: Photo[];
   deletePhoto: (id: string) => void;
-  like: (id: string) => void;
+  toggleLike: (id: string) => void;
   fetch: () => Promise<void>;
   focus: (id: string) => void;
 };
@@ -42,12 +42,12 @@ export const usePhotosStore = create<PhotosState>((set) => ({
   deletePhoto: (id: string) => set((state) => ({
     photos: state.photos.filter((photo) => photo.id !== id),
   })),
-  like: (id: string) => set((state) => ({
+  toggleLike: (id: string) => set((state) => ({
     photos: state.photos.map((photo) => {
       if (photo.id === id) {
         return {
           ...photo,
-          favorited: true,
+          favorited: !photo.favorited,
         };
       }
       return photo;
