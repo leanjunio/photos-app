@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* remove all default button styling */
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}

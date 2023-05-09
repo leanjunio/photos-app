@@ -5,17 +5,6 @@
   background-color: #f7fafc;
 }
 
-/* remove all default button styling */
-button {
-  border: none;
-  outline: none;
-  background-color: transparent;
-  color: inherit;
-  font-family: inherit;
-  font-size: inherit;
-  cursor: pointer;
-}
-
 .nav {
   margin-bottom: 25px;
   padding: 15px 0;

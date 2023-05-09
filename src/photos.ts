@@ -54,6 +54,7 @@ export const usePhotosStore = create<PhotosState>((set) => ({
     })
   })),
   fetch: async () => {
+    console.log('fetching photos');
     set({ loading: true });
     const response = await fetch('https://agencyanalytics-api.vercel.app/images.json');
     const photos: Photo[] = await response.json();
