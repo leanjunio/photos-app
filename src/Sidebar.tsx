@@ -19,17 +19,17 @@ export function Sidebar({ currentPhoto }: SidebarProps) {
     },
     {
       label: 'Created',
-      value: currentPhoto?.createdAt ? displayFullDate(currentPhoto?.createdAt) : ''
+      value: currentPhoto?.createdAt ? displayFullDate(currentPhoto.createdAt) : ''
     },
     {
       label: 'Last modified',
-      value: currentPhoto?.updatedAt ? displayFullDate(currentPhoto?.updatedAt) : ''
+      value: currentPhoto?.updatedAt ? displayFullDate(currentPhoto.updatedAt) : ''
     }, {
       label: 'Dimensions',
-      value: currentPhoto?.dimensions ? `${currentPhoto?.dimensions.width} x ${currentPhoto?.dimensions.height}` : ''
+      value: currentPhoto?.dimensions ? `${currentPhoto.dimensions.width} x ${currentPhoto.dimensions.height}` : ''
     }, {
       label: 'Resolution',
-      value: currentPhoto?.resolution ? `${currentPhoto?.resolution.width} x ${currentPhoto?.resolution.height}` : ''
+      value: currentPhoto?.resolution ? `${currentPhoto.resolution.width} x ${currentPhoto.resolution.height}` : ''
     }
   ];
 
