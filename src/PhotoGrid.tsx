@@ -10,7 +10,7 @@ type PhotoGridProps = {
 
 export function PhotoGrid({ currentList, onPhotoSelect, selectedPhoto }: PhotoGridProps) {
   return (
-    <div className="content">
+    <div aria-label="photo grid" className="content">
       <div className="photos">
         {currentList.map((photo) => (
           <div key={photo.id} className="photo-container" onClick={() => onPhotoSelect(photo.id)}>

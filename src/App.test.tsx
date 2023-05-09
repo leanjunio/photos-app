@@ -18,4 +18,14 @@ it('removes the deleted photo from the page', async () => {
   await userEvent.click(screen.getByText(/delete/i));
   expect(screen.queryByText(photo)).not.toBeInTheDocument();
   expect(screen.getByText(/click on a photo/i)).toBeVisible();
+});
+
+it('shows a "Liked" photo on the "Favorited" tab', async () => {
+  render(<App />);
+  const photo = /so_iceland_keira\.jpg/i;
+  await waitForElementToBeRemoved(() => screen.queryByText(/loading/i));
+  await userEvent.click(within(screen.getByLabelText(/sidebar/i)).getByText(photo));
+  await userEvent.click(within(screen.getByLabelText(/sidebar/i)).getByText(/like/i));
+  await userEvent.click(screen.getByText(/favorited/i));
+  expect(within(screen.getByLabelText(/photo grid/i)).getByText(photo)).toBeVisible();
 })

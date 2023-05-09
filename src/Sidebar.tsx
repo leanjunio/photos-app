@@ -9,7 +9,7 @@ type SidebarProps = {
 }
 
 export function Sidebar({ currentPhoto }: SidebarProps) {
-  const deletePhoto = usePhotosStore(state => state.deletePhoto);
+  const { deletePhoto, like } = usePhotosStore(state => ({ deletePhoto: state.deletePhoto, like: state.like }));
 
   const infoSectionData = [
     {
@@ -48,7 +48,7 @@ export function Sidebar({ currentPhoto }: SidebarProps) {
           size={bytesToMB(currentPhoto.sizeInBytes)}
         />
         <div>
-          <p>Like</p>
+          <button onClick={() => like(currentPhoto.id)}>Like</button>
         </div>
       </div>
       <div className='information section'>
