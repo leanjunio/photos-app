@@ -10,11 +10,7 @@ function App() {
   return (
     <div className='content'>
       <Photos />
-      <div className="sidebar">
-        <div className="image-details">
-          <Sidebar currentPhoto={currentPhoto} />
-        </div>
-      </div>
+      <Sidebar currentPhoto={currentPhoto} />
     </div >
   );
 }

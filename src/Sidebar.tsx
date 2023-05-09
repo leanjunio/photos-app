@@ -41,31 +41,34 @@ export function Sidebar({ currentPhoto }: SidebarProps) {
   }
 
   return (
-    <div aria-label="sidebar">
-      <img className='highlight' src={currentPhoto.url} alt={currentPhoto.filename} />
-      <div className='file-details'>
-        <FileDetails
-          filename={currentPhoto.filename}
-          size={bytesToMB(currentPhoto.sizeInBytes)}
-        />
-        <div>
-          <button onClick={() => toggleLike(currentPhoto.id)}>
-            <Like stroke="#4f47dc" fill={currentPhoto.favorited ? '#4f47dc' : 'none'} />
-          </button>
+    <div className="sidebar">
+      <div aria-label="sidebar" className="image-details">
+        <img className='highlight' src={currentPhoto.url} alt={currentPhoto.filename} />
+        <div className='file-details'>
+          <FileDetails
+            filename={currentPhoto.filename}
+            size={bytesToMB(currentPhoto.sizeInBytes)}
+          />
+          <div>
+            <button onClick={() => toggleLike(currentPhoto.id)}>
+              <Like stroke="#4f47dc" fill={currentPhoto.favorited ? '#4f47dc' : 'none'} />
+            </button>
+          </div>
         </div>
+        <div className='information section'>
+          <h3 className='label'>Information</h3>
+          {infoSectionData.map((info, i) => (
+            <InfoRow key={i} label={info.label} value={info.value} />
+          ))}
+        </div>
+        <Section label='Description'>
+          <p className='gray description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <button onClick={() => deletePhoto(currentPhoto.id)} className='button black'>
+            Delete
+          </button>
+        </Section>
       </div>
-      <div className='information section'>
-        <h3 className='label'>Information</h3>
-        {infoSectionData.map((info, i) => (
-          <InfoRow key={i} label={info.label} value={info.value} />
-        ))}
-      </div>
-      <Section label='Description'>
-        <p className='gray description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <button onClick={() => deletePhoto(currentPhoto.id)} className='button black'>
-          Delete
-        </button>
-      </Section>
     </div>
+
   )
 }
