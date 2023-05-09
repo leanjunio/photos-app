@@ -24,7 +24,6 @@ it('shows a "Liked" photo on the "Favorited" tab', async () => {
   render(<App />);
   const photo = /so_iceland_keira\.jpg/i;
   await waitForElementToBeRemoved(() => screen.queryByText(/loading/i));
-  await userEvent.click(within(screen.getByLabelText(/sidebar/i)).getByText(photo));
   await userEvent.click(within(screen.getByLabelText(/sidebar/i)).getByText(/like/i));
   await userEvent.click(screen.getByText(/favorited/i));
   expect(within(screen.getByLabelText(/photo grid/i)).getByText(photo)).toBeVisible();
