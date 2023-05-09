@@ -2,6 +2,7 @@ import './App.css';
 import { FileDetails } from './FileDetails';
 import InfoRow from './InfoList';
 import { Photos } from './Photos';
+import { Section } from './components/Section/Section';
 import { usePhotosStore } from './photos';
 import { bytesToMB } from './utils';
 
@@ -62,16 +63,17 @@ function App() {
                 <InfoRow key={i} label={info.label} value={info.value} />
               ))}
             </div>
-            <div className='section'>
-              <h3 className='label'>Description</h3>
+            <Section label='Description'>
               <p className='gray'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-            <button className='button black'>
-              Delete
-            </button>
+              <button className='button black'>
+                Delete
+              </button>
+            </Section>
           </div>
+
         </div>
-      )}
+      )
+      }
     </div >
   );
 }
