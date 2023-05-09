@@ -175,3 +175,8 @@ button {
 .columns:last-of-type {
   border-bottom: 1px rgb(201, 201, 201) solid;
 }
+
+p.description {
+  line-height: 1.5;
+  text-align: left;
+}
