@@ -175,3 +175,6 @@
   transition: width 0.3s ease-in-out; /* add animation transition */
 }
 
+.columns:last-of-type {
+  border-bottom: 1px rgb(201, 201, 201) solid;
+}

@@ -52,7 +52,7 @@ function App() {
                 <p className='gray'>Dimensions</p>
                 <p className='dark'>{currentPhoto.dimensions.width} x {currentPhoto.dimensions.height}</p>
               </div>
-              <div className="columns border-b">
+              <div className="columns">
                 <p className='gray'>Resolution</p>
                 <p className='dark'>{currentPhoto.resolution.width} x {currentPhoto.resolution.height}</p>
               </div>
