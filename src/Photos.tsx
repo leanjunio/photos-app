@@ -4,7 +4,6 @@ import { Tab } from "./components/Tab/Tab";
 import { PhotoGrid } from "./PhotoGrid";
 
 export function Photos() {
-  const [clicked, setClicked] = useState('');
   const [activeTab, setActiveTab] = useState<number>(0);
 
   const { fetch, photos, loading, focus } = usePhotosStore();
@@ -21,7 +20,6 @@ export function Photos() {
 
   function onSelect(id: string) {
     focus(id);
-    setClicked(id);
   }
 
   function changeTab(tab: number) {
@@ -41,7 +39,7 @@ export function Photos() {
     <div className="page">
       <h1>Photos</h1>
       <Tab tabs={tabs} activeTab={activeTab} onTabChange={changeTab} />
-      <PhotoGrid currentList={lists[activeTab]} onPhotoSelect={onSelect} selectedPhoto={clicked} />
+      <PhotoGrid currentList={lists[activeTab]} onPhotoSelect={onSelect} />
     </div>
   );
 }
