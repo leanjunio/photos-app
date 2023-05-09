@@ -2,12 +2,15 @@ import { useEffect, useState } from "react";
 import { usePhotosStore } from "./photos";
 import { bytesToMB } from "./utils";
 import { FileDetails } from "./FileDetails";
+import { Tab } from "./components/Tab/Tab";
 
 export function Photos() {
   const [clicked, setClicked] = useState('');
-  const [activeTab, setActiveTab] = useState<number>(1);
+  const [activeTab, setActiveTab] = useState<number>(0);
 
   const { fetch, photos, loading, focus } = usePhotosStore();
+
+  const tabs = ['Recently Added', 'Favorited'];
 
   const favorites = photos.filter(photo => photo.favorited);
 
@@ -38,14 +41,7 @@ export function Photos() {
   return (
     <div className="page">
       <h1>Photos</h1>
-      <div className="nav border-b">
-        <button className={`link ${activeTab === 1 ? 'wide' : ''}`} onClick={() => changeTab(1)}>
-          Recently Added
-        </button>
-        <button className={`link ${activeTab === 2 ? 'wide' : ''}`} onClick={() => changeTab(2)}>
-          Favorited
-        </button>
-      </div>
+      <Tab tabs={tabs} activeTab={activeTab} onTabChange={changeTab} />
       <div className="content">
         <div className="photos">
           {currentList.map((photo) => (
