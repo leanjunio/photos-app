@@ -29,7 +29,7 @@ it('shows a "Liked" photo on the "Favorited" tab', async () => {
   expect(within(screen.getByLabelText(/photo grid/i)).getByText(photo)).toBeVisible();
 });
 
-it('removes a "Liked" photo on the "Favorited" tab', async () => {
+it('removes an "Unliked" photo on the "Favorited" tab', async () => {
   render(<App />);
   await waitForElementToBeRemoved(() => screen.queryByText(/loading/i));
 
