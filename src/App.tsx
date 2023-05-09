@@ -1,4 +1,5 @@
 import './App.css';
+import { FileDetails } from './FileDetails';
 import { Photos } from './Photos';
 import { usePhotosStore } from './photos';
 import { bytesToMB } from './utils';
@@ -25,10 +26,10 @@ function App() {
           <div className="image-details">
             <img className='highlight' src={currentPhoto.url} alt={currentPhoto.filename} />
             <div className='file-details'>
-              <div>
-                <p className='label'>{currentPhoto.filename}</p>
-                <p className="subtext">{bytesToMB(currentPhoto.sizeInBytes)} MB</p>
-              </div>
+              <FileDetails
+                filename={currentPhoto.filename}
+                size={bytesToMB(currentPhoto.sizeInBytes)}
+              />
               <div>
                 <p>Like</p>
               </div>

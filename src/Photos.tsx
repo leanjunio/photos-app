@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { usePhotosStore } from "./photos";
 import { bytesToMB } from "./utils";
+import { FileDetails } from "./FileDetails";
 
 export function Photos() {
   const [clicked, setClicked] = useState('');
@@ -50,8 +51,10 @@ export function Photos() {
           {currentList.map((photo) => (
             <div key={photo.id} className="photo-container" onClick={() => onSelect(photo.id)}>
               <img className={`photo ${clicked === photo.id ? 'clicked' : ''}`} src={photo.url} alt={photo.filename} />
-              <p className="label">{photo.filename}</p>
-              <p className="subtext">{bytesToMB(photo.sizeInBytes)} MB</p>
+              <FileDetails
+                filename={photo.filename}
+                size={bytesToMB(photo.sizeInBytes)}
+              />
             </div>
           ))}
         </div>
