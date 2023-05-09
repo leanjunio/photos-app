@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { usePhotosStore } from "./photos";
-import { Tab } from "./components/Tab/Tab";
+import { Tab } from "./components/Tab";
 import { PhotoGrid } from "./PhotoGrid";
 
 export function Photos() {

@@ -1,6 +1,4 @@
 
-import "./index.css"
-
 type SectionProps = {
   label: string;
   children: React.ReactNode;
