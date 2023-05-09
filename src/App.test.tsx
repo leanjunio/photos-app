@@ -17,4 +17,5 @@ it('removes the deleted photo from the page', async () => {
   expect(within(screen.getByLabelText(/sidebar/i)).getByAltText(photo)).toBeVisible();
   await userEvent.click(screen.getByText(/delete/i));
   expect(screen.queryByText(photo)).not.toBeInTheDocument();
+  expect(screen.getByText(/click on a photo/i)).toBeVisible();
 })
