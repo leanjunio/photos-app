@@ -98,13 +98,6 @@
   padding: 2px;
 }
 
-.sidebar {
-  min-width: 25%;
-  max-width: 25%;
-  border-left: 1px #e5eaf0 solid;
-  padding: 0 2%;
-}
-
 .border-b {
   border-bottom: 1px rgb(201, 201, 201) solid;
 }
@@ -130,6 +123,13 @@
   align-items: center;
 }
 
+.sidebar {
+  min-width: 25%;
+  max-width: 25%;
+  border-left: 1px #e5eaf0 solid;
+  padding: 0 2%;
+}
+
 .sidebar__file {
   display: flex;
   flex-direction: row;
@@ -142,7 +142,7 @@
   text-align: left;
 }
 
-.sidebar__image-description {
+.sidebar__description {
   line-height: 1.5;
   text-align: left;
 }
