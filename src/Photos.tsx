@@ -15,6 +15,8 @@ export function Photos() {
 
   const favorites = photos.filter(photo => photo.favorited);
 
+  const lists = [photos, favorites];
+
   useEffect(() => {
     fetch();
   }, [fetch]);
@@ -37,13 +39,11 @@ export function Photos() {
     );
   }
 
-  const currentList = activeTab === 1 ? photos : favorites;
-
   return (
     <div className="page">
       <h1>Photos</h1>
       <Tab tabs={tabs} activeTab={activeTab} onTabChange={changeTab} />
-      <PhotoGrid currentList={currentList} onPhotoSelect={onSelect} selectedPhoto={clicked} />
+      <PhotoGrid currentList={lists[activeTab]} onPhotoSelect={onSelect} selectedPhoto={clicked} />
     </div>
   );
 }
