@@ -12,9 +12,7 @@ function App() {
       <Photos />
       <div className="sidebar">
         <div className="image-details">
-          {!currentPhoto ? (
-            <p>Choose One</p>
-          ) : <Sidebar currentPhoto={currentPhoto} />}
+          <Sidebar currentPhoto={currentPhoto} />
         </div>
       </div>
     </div >

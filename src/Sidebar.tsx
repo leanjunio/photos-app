@@ -5,7 +5,7 @@ import { Photo } from "./photos";
 import { bytesToMB, displayFullDate } from "./utils";
 
 type SidebarProps = {
-  currentPhoto: Photo;
+  currentPhoto?: Photo;
 }
 
 export function Sidebar({ currentPhoto }: SidebarProps) {
@@ -29,6 +29,12 @@ export function Sidebar({ currentPhoto }: SidebarProps) {
       value: currentPhoto?.resolution ? `${currentPhoto?.resolution.width} x ${currentPhoto?.resolution.height}` : ''
     }
   ];
+
+  if (!currentPhoto) {
+    return (
+      <p>Click on a photo</p>
+    )
+  }
 
   return (
     <>
