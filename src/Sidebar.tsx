@@ -34,7 +34,7 @@ export function Sidebar({ currentPhoto }: SidebarProps) {
   ];
 
   return (
-    <div className="sidebar">
+    <aside className="sidebar">
       <div aria-label="sidebar" className="sidebar__wrapper">
         {!currentPhoto ? <p>Click on a photo</p> : (
           <>
@@ -50,12 +50,12 @@ export function Sidebar({ currentPhoto }: SidebarProps) {
                 </button>
               </div>
             </div>
-            <div className='sidebar__information'>
+            <section className='sidebar__information'>
               <h3 className='text-label'>Information</h3>
               {infoSectionData.map((info, i) => (
                 <InfoRow key={i} label={info.label} value={info.value} />
               ))}
-            </div>
+            </section>
             <Section label='Description'>
               <p className='text-normal sidebar__description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
               <button onClick={() => deletePhoto(currentPhoto.id)} className='sidebar__delete'>
@@ -65,7 +65,6 @@ export function Sidebar({ currentPhoto }: SidebarProps) {
           </>
         )}
       </div>
-    </div>
-
+    </aside>
   )
 }

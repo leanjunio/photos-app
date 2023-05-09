@@ -10,7 +10,7 @@ type PhotoGridProps = {
 export function PhotoGrid({ currentList, onPhotoSelect }: PhotoGridProps) {
   const current = usePhotosStore(state => state.current);
   return (
-    <div aria-label="photo grid" className="content">
+    <main aria-label="photo grid" className="content">
       {currentList.length === 0 ? <p>No photos found</p> : (
         <div className="photo-grid">
           {currentList.map((photo) => (
@@ -24,6 +24,6 @@ export function PhotoGrid({ currentList, onPhotoSelect }: PhotoGridProps) {
           ))}
         </div>
       )}
-    </div>
+    </main>
   )
 }
