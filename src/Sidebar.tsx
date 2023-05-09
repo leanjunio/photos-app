@@ -37,7 +37,7 @@ export function Sidebar({ currentPhoto }: SidebarProps) {
   }
 
   return (
-    <>
+    <div aria-label="sidebar">
       <img className='highlight' src={currentPhoto.url} alt={currentPhoto.filename} />
       <div className='file-details'>
         <FileDetails
@@ -60,6 +60,6 @@ export function Sidebar({ currentPhoto }: SidebarProps) {
           Delete
         </button>
       </Section>
-    </>
+    </div>
   )
 }

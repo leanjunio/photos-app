@@ -9,7 +9,7 @@ export function Tab({ tabs, activeTab, onTabChange }: TabProps) {
   return (
     <div className="nav border-b">
       {tabs.map((tab, i) => (
-        <button className={`link ${activeTab === i ? 'wide' : ''}`} onClick={() => onTabChange(i)}>
+        <button key={i} className={`link ${activeTab === i ? 'wide' : ''}`} onClick={() => onTabChange(i)}>
           {tab}
         </button>)
       )}

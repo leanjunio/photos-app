@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { usePhotosStore } from "./photos";
-import { bytesToMB } from "./utils";
-import { FileDetails } from "./FileDetails";
 import { Tab } from "./components/Tab/Tab";
 import { PhotoGrid } from "./PhotoGrid";
 
