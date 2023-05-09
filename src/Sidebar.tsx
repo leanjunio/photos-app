@@ -35,7 +35,7 @@ export function Sidebar({ currentPhoto }: SidebarProps) {
 
   return (
     <div className="sidebar">
-      <div aria-label="sidebar" className="image-details">
+      <div aria-label="sidebar" className="sidebar__wrapper">
         {!currentPhoto ? <p>Click on a photo</p> : (
           <>
             <img className='sidebar__image' src={currentPhoto.url} alt={currentPhoto.filename} />

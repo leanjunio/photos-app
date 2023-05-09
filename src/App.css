@@ -112,7 +112,7 @@
   padding: 10px;
 }
 
-.image-details {
+.sidebar__wrapper {
   position: sticky;
   top: 30px;
   display: flex;
