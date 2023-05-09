@@ -5,6 +5,17 @@
   background-color: #f7fafc;
 }
 
+/* remove all default button styling */
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
 .nav {
   margin-bottom: 25px;
   padding: 15px 0;
@@ -145,15 +156,6 @@
 }
 
 .link {
-  /* remove all default button styles */
-  border: none;
-  outline: none;
-  background-color: transparent;
-  color: inherit;
-  font-family: inherit;
-  font-size: inherit;
-  cursor: pointer;
-
   position: relative; /* set position to relative */
   color: #647388; /* set text color */
   margin-bottom: 10px;
