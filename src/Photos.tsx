@@ -29,7 +29,6 @@ export function Photos() {
   if (loading) {
     return (
       <div className="page">
-        <h1>Photos</h1>
         <p>Loading...</p>
       </div>
     );
