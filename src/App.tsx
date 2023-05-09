@@ -40,40 +40,38 @@ function App() {
   return (
     <div className='content'>
       <Photos />
-      {!currentPhoto ? (
-        <div className="sidebar">
-          Choose One
-        </div>
-      ) : (
-        <div className="sidebar">
-          <div className="image-details">
-            <img className='highlight' src={currentPhoto.url} alt={currentPhoto.filename} />
-            <div className='file-details'>
-              <FileDetails
-                filename={currentPhoto.filename}
-                size={bytesToMB(currentPhoto.sizeInBytes)}
-              />
-              <div>
-                <p>Like</p>
+      <div className="sidebar">
+        <div className="image-details">
+          {!currentPhoto ? (
+            <p>Choose One</p>
+          ) : (
+            <>
+              <img className='highlight' src={currentPhoto.url} alt={currentPhoto.filename} />
+              <div className='file-details'>
+                <FileDetails
+                  filename={currentPhoto.filename}
+                  size={bytesToMB(currentPhoto.sizeInBytes)}
+                />
+                <div>
+                  <p>Like</p>
+                </div>
               </div>
-            </div>
-            <div className='information section'>
-              <h3 className='label'>Information</h3>
-              {infoSectionData.map((info, i) => (
-                <InfoRow key={i} label={info.label} value={info.value} />
-              ))}
-            </div>
-            <Section label='Description'>
-              <p className='gray description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              <button className='button black'>
-                Delete
-              </button>
-            </Section>
-          </div>
-
+              <div className='information section'>
+                <h3 className='label'>Information</h3>
+                {infoSectionData.map((info, i) => (
+                  <InfoRow key={i} label={info.label} value={info.value} />
+                ))}
+              </div>
+              <Section label='Description'>
+                <p className='gray description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <button className='button black'>
+                  Delete
+                </button>
+              </Section>
+            </>
+          )}
         </div>
-      )
-      }
+      </div>
     </div >
   );
 }
