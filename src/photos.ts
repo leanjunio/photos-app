@@ -60,5 +60,5 @@ export const usePhotosStore = create<PhotosState>((set) => ({
     const sortedArray = photos.sort((a, b) => new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf());
     set({ photos: sortedArray, loading: false });
   },
-  focus: (id: string) => set((state) => ({ current: id })),
+  focus: (id: string) => set(() => ({ current: id })),
 }));
