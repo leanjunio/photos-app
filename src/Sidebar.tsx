@@ -38,14 +38,14 @@ export function Sidebar({ currentPhoto }: SidebarProps) {
       <div aria-label="sidebar" className="image-details">
         {!currentPhoto ? <p>Click on a photo</p> : (
           <>
-            <img className='highlight' src={currentPhoto.url} alt={currentPhoto.filename} />
-            <div className='file-details'>
+            <img className='sidebar__image' src={currentPhoto.url} alt={currentPhoto.filename} />
+            <div className='sidebar__file'>
               <FileDetails
                 filename={currentPhoto.filename}
                 size={bytesToMB(currentPhoto.sizeInBytes)}
               />
               <div>
-                <button onClick={() => toggleLike(currentPhoto.id)}>
+                <button className="mt-8" onClick={() => toggleLike(currentPhoto.id)}>
                   <Like stroke="#4f47dc" fill={currentPhoto.favorited ? '#4f47dc' : 'none'} />
                 </button>
               </div>

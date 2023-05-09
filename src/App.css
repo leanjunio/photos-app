@@ -38,6 +38,10 @@
   transition: width 0.3s ease-in-out; /* add animation transition */
 }
 
+.mt-8 {
+  margin-top: 8px;
+}
+
 .gray {
   color: #647388;
 }
@@ -58,10 +62,7 @@
   color: #647388;
 }
 
-.sidebar__image-description {
-  line-height: 1.5;
-  text-align: left;
-}
+
 
 .content {
   display: flex;
@@ -129,7 +130,7 @@
   align-items: center;
 }
 
-.file-details {
+.sidebar__file {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -137,11 +138,16 @@
   margin: 10px 0;
 }
 
-.file-details > div {
+.sidebar__file div {
   text-align: left;
 }
 
-.highlight {
+.sidebar__image-description {
+  line-height: 1.5;
+  text-align: left;
+}
+
+.sidebar__image {
   height: 300px;
   width: 100%;
   border-radius: 10px;
