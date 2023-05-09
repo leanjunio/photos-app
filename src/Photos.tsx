@@ -11,6 +11,8 @@ export function Photos() {
 
   const { fetch, photos, loading, focus } = usePhotosStore();
 
+  const favorites = photos.filter(photo => photo.favorited);
+
   useEffect(() => {
     fetch();
   }, [fetch]);
@@ -33,6 +35,8 @@ export function Photos() {
     );
   }
 
+  const currentList = activeTab === 1 ? photos : favorites;
+
   return (
     <div className="page">
       <h1>Photos</h1>
@@ -40,11 +44,13 @@ export function Photos() {
         <button className={`link ${activeTab === 1 ? 'wide' : ''}`} onClick={() => changeTab(1)}>
           Recently Added
         </button>
-        <button className={`link ${activeTab === 2 ? 'wide' : ''}`} onClick={() => changeTab(2)}>Favorited</button>
+        <button className={`link ${activeTab === 2 ? 'wide' : ''}`} onClick={() => changeTab(2)}>
+          Favorited
+        </button>
       </div>
       <div className="content">
         <div className="photos">
-          {photos.map((photo) => (
+          {currentList.map((photo) => (
             <div key={photo.id} className="photo-container" onClick={() => onSelect(photo.id)}>
               <img className={`photo ${clicked === photo.id ? 'clicked' : ''}`} src={photo.url} alt={photo.filename} />
               <p className="label">{photo.filename}</p>
