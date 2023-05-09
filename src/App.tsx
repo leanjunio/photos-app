@@ -1,5 +1,6 @@
 import './App.css';
 import { FileDetails } from './FileDetails';
+import InfoRow from './InfoList';
 import { Photos } from './Photos';
 import { usePhotosStore } from './photos';
 import { bytesToMB } from './utils';
@@ -13,6 +14,27 @@ function displayFullDate(date: string) {
 function App() {
   const { current, photos } = usePhotosStore(state => ({ current: state.current, photos: state.photos }));
   const currentPhoto = photos.find(photo => photo.id === current);
+
+  const infoSectionData = [
+    {
+      label: 'Uploaded by',
+      value: currentPhoto?.uploadedBy ?? ''
+    },
+    {
+      label: 'Created',
+      value: currentPhoto?.createdAt ? displayFullDate(currentPhoto?.createdAt) : ''
+    },
+    {
+      label: 'Last modified',
+      value: currentPhoto?.updatedAt ? displayFullDate(currentPhoto?.updatedAt) : ''
+    }, {
+      label: 'Dimensions',
+      value: currentPhoto?.dimensions ? `${currentPhoto?.dimensions.width} x ${currentPhoto?.dimensions.height}` : ''
+    }, {
+      label: 'Resolution',
+      value: currentPhoto?.resolution ? `${currentPhoto?.resolution.width} x ${currentPhoto?.resolution.height}` : ''
+    }
+  ];
 
   return (
     <div className='content'>
@@ -36,26 +58,9 @@ function App() {
             </div>
             <div className='information section'>
               <h3 className='label'>Information</h3>
-              <div className="columns">
-                <p className='gray'>Uploaded by</p>
-                <p className='dark'>{currentPhoto.uploadedBy}</p>
-              </div>
-              <div className="columns">
-                <p className='gray'>Created</p>
-                <p className='dark'>{displayFullDate(currentPhoto.createdAt)}</p>
-              </div>
-              <div className="columns">
-                <p className='gray'>Last modified</p>
-                <p className='dark'>{displayFullDate(currentPhoto.updatedAt)}</p>
-              </div>
-              <div className="columns">
-                <p className='gray'>Dimensions</p>
-                <p className='dark'>{currentPhoto.dimensions.width} x {currentPhoto.dimensions.height}</p>
-              </div>
-              <div className="columns">
-                <p className='gray'>Resolution</p>
-                <p className='dark'>{currentPhoto.resolution.width} x {currentPhoto.resolution.height}</p>
-              </div>
+              {infoSectionData.map((info, i) => (
+                <InfoRow key={i} label={info.label} value={info.value} />
+              ))}
             </div>
             <div className='section'>
               <h3 className='label'>Description</h3>
