@@ -27,4 +27,17 @@ it('shows a "Liked" photo on the "Favorited" tab', async () => {
   await userEvent.click(within(screen.getByLabelText(/sidebar/i)).getByText(/like/i));
   await userEvent.click(screen.getByText(/favorited/i));
   expect(within(screen.getByLabelText(/photo grid/i)).getByText(photo)).toBeVisible();
+});
+
+it('removes a "Liked" photo on the "Favorited" tab', async () => {
+  render(<App />);
+  await waitForElementToBeRemoved(() => screen.queryByText(/loading/i));
+
+  const photoGrid = screen.getByLabelText(/photo grid/i);
+
+  // unlike a photo
+  await userEvent.click(screen.getByText(/favorited/i));
+  await userEvent.click(within(photoGrid).getByText(/female_cyan/i));
+  await userEvent.click(within(screen.getByLabelText(/sidebar/i)).getByLabelText(/like button/i));
+  expect(within(photoGrid).queryByText(/female_cyan/i)).not.toBeInTheDocument();
 })

@@ -46,7 +46,7 @@ export function Sidebar({ currentPhoto }: SidebarProps) {
               />
               <div>
                 <button className="mt-8" onClick={() => toggleLike(currentPhoto.id)}>
-                  <Like stroke="#4f47dc" fill={currentPhoto.favorited ? '#4f47dc' : 'none'} />
+                  <Like aria-label="like button" stroke="#4f47dc" fill={currentPhoto.favorited ? '#4f47dc' : 'none'} />
                 </button>
               </div>
             </div>
