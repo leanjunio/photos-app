@@ -101,6 +101,11 @@
   border-bottom: 1px rgb(201, 201, 201) solid;
 }
 
+.section {
+  margin: 20px 0;
+  text-align: left;
+}
+
 .sidebar__wrapper {
   position: sticky;
   top: 30px;
