@@ -9,12 +9,12 @@ it('shows the initial state of the photo grid - Recently Added', async () => {
   expect(screen.getByText(/click on a photo/i)).toBeVisible();
 });
 
-it('removes the deleted photo from the list of photos', async () => {
+it('removes the deleted photo from the page', async () => {
   render(<App />);
   const photo = /so_iceland_keira\.jpg/i;
   await waitForElementToBeRemoved(() => screen.queryByText(/loading/i));
   await userEvent.click(screen.getByText(photo));
   expect(within(screen.getByLabelText(/sidebar/i)).getByAltText(photo)).toBeVisible();
   await userEvent.click(screen.getByText(/delete/i));
-  expect(screen.getByText(photo)).not.toBeVisible();
+  expect(screen.queryByText(photo)).not.toBeInTheDocument();
 })

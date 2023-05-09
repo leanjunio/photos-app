@@ -29,7 +29,7 @@ type PhotosState = {
   current: string;
   loading: boolean;
   photos: Photo[];
-  delete: (id: string) => void;
+  deletePhoto: (id: string) => void;
   like: (id: string) => void;
   fetch: () => Promise<void>;
   focus: (id: string) => void;
@@ -39,7 +39,7 @@ export const usePhotosStore = create<PhotosState>((set) => ({
   current: '',
   loading: false,
   photos: [],
-  delete: (id: string) => set((state) => ({
+  deletePhoto: (id: string) => set((state) => ({
     photos: state.photos.filter((photo) => photo.id !== id),
   })),
   like: (id: string) => set((state) => ({

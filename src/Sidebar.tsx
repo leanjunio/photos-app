@@ -1,7 +1,7 @@
 import { FileDetails } from "./FileDetails";
 import InfoRow from "./InfoList";
 import { Section } from "./components/Section/Section";
-import { Photo } from "./photos";
+import { Photo, usePhotosStore } from "./photos";
 import { bytesToMB, displayFullDate } from "./utils";
 
 type SidebarProps = {
@@ -9,6 +9,8 @@ type SidebarProps = {
 }
 
 export function Sidebar({ currentPhoto }: SidebarProps) {
+  const deletePhoto = usePhotosStore(state => state.deletePhoto);
+
   const infoSectionData = [
     {
       label: 'Uploaded by',
@@ -29,6 +31,7 @@ export function Sidebar({ currentPhoto }: SidebarProps) {
       value: currentPhoto?.resolution ? `${currentPhoto?.resolution.width} x ${currentPhoto?.resolution.height}` : ''
     }
   ];
+
 
   if (!currentPhoto) {
     return (
@@ -56,7 +59,7 @@ export function Sidebar({ currentPhoto }: SidebarProps) {
       </div>
       <Section label='Description'>
         <p className='gray description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <button className='button black'>
+        <button onClick={() => deletePhoto(currentPhoto.id)} className='button black'>
           Delete
         </button>
       </Section>
