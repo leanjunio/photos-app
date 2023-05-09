@@ -3,6 +3,7 @@ import InfoRow from "./InfoList";
 import { Section } from "./components/Section/Section";
 import { Photo, usePhotosStore } from "./photos";
 import { bytesToMB, displayFullDate } from "./utils";
+import { ReactComponent as Like } from "./like.svg"
 
 type SidebarProps = {
   currentPhoto?: Photo;
@@ -39,6 +40,7 @@ export function Sidebar({ currentPhoto }: SidebarProps) {
     )
   }
 
+  console.log({ favorited: currentPhoto.favorited })
   return (
     <div aria-label="sidebar">
       <img className='highlight' src={currentPhoto.url} alt={currentPhoto.filename} />
@@ -48,7 +50,9 @@ export function Sidebar({ currentPhoto }: SidebarProps) {
           size={bytesToMB(currentPhoto.sizeInBytes)}
         />
         <div>
-          <button onClick={() => like(currentPhoto.id)}>Like</button>
+          <button onClick={() => like(currentPhoto.id)}>
+            <Like stroke="#4f47dc" fill={currentPhoto.favorited ? '#4f47dc' : 'none'} />
+          </button>
         </div>
       </div>
       <div className='information section'>
