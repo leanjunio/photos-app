@@ -63,8 +63,6 @@
   color: #647388;
 }
 
-
-
 .content {
   display: flex;
   flex-direction: row;
@@ -101,16 +99,6 @@
 
 .border-b {
   border-bottom: 1px rgb(201, 201, 201) solid;
-}
-
-.button {
-  background-color: white;
-  border:rgb(201, 201, 201) solid 1px;
-  text-align: center;
-  width: 100%;
-  border-radius: 8px;
-  font-size: 1em;
-  padding: 10px;
 }
 
 .sidebar__wrapper {
@@ -161,6 +149,17 @@
   flex-direction: column;
   text-align: left;
   width: 100%;
+}
+
+.sidebar__delete {
+  background-color: white;
+  border:rgb(201, 201, 201) solid 1px;
+  text-align: center;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 1em;
+  padding: 10px;
+  margin-top: 20px;
 }
 
 .information__column {

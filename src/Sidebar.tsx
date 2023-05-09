@@ -58,7 +58,7 @@ export function Sidebar({ currentPhoto }: SidebarProps) {
             </div>
             <Section label='Description'>
               <p className='text-normal sidebar__description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              <button onClick={() => deletePhoto(currentPhoto.id)} className='button black'>
+              <button onClick={() => deletePhoto(currentPhoto.id)} className='sidebar__delete'>
                 Delete
               </button>
             </Section>
