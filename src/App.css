@@ -10,13 +10,32 @@
   padding: 15px 0;
 }
 
-.nav > .link {
+.nav__link {
   margin-right: 20px;
   text-decoration: none;
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
+  position: relative; /* set position to relative */
+  color: #647388; /* set text color */
+  margin-bottom: 10px;
+}
+
+.nav__link--wide {
+  color:#4f47dc;
+}
+
+.nav__link--wide::after {
+  margin-bottom: 10px;
+  content: ""; /* add a pseudo-element */
+  position: absolute; /* set position to absolute */
+  left: 0; /* align to the left */
+  bottom: -35px; /* set distance from text */
+  height: 2px; /* set height of underline */
+  width: 100%; /* set initial width to 0 */
+  background-color: #4f47dc; /* set color of underline */
+  transition: width 0.3s ease-in-out; /* add animation transition */
 }
 
 .gray {
@@ -27,16 +46,21 @@
   color: #242d3c
 }
 
-.label {
+.text-label {
   font-weight: 500;
   margin: 8px 0;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.subtext {
+.text-normal {
   margin: 8px 0;
   color: #647388;
+}
+
+.sidebar__image-description {
+  line-height: 1.5;
+  text-align: left;
 }
 
 .content {
@@ -125,47 +149,20 @@
   object-fit: cover;
 }
 
-.information {
+.sidebar__information {
   display: flex;
   flex-direction: column;
   text-align: left;
   width: 100%;
 }
 
-.information > .columns {
+.information__column {
   border-top: 1px rgb(201, 201, 201) solid;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.link {
-  position: relative; /* set position to relative */
-  color: #647388; /* set text color */
-  margin-bottom: 10px;
-}
-
-.link.wide {
-  color:#4f47dc;
-}
-
-.link.wide::after {
-  margin-bottom: 10px;
-  content: ""; /* add a pseudo-element */
-  position: absolute; /* set position to absolute */
-  left: 0; /* align to the left */
-  bottom: -35px; /* set distance from text */
-  height: 2px; /* set height of underline */
-  width: 100%; /* set initial width to 0 */
-  background-color: #4f47dc; /* set color of underline */
-  transition: width 0.3s ease-in-out; /* add animation transition */
-}
-
-.columns:last-of-type {
+.information__column:last-of-type {
   border-bottom: 1px rgb(201, 201, 201) solid;
-}
-
-p.description {
-  line-height: 1.5;
-  text-align: left;
 }

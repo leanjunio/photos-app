@@ -6,8 +6,8 @@ type FileDetailsProps = {
 export function FileDetails({ filename, size }: FileDetailsProps) {
   return (
     <div>
-      <p className='label'>{filename}</p>
-      <p className="subtext">{size} MB</p>
+      <p className='text-label'>{filename}</p>
+      <p className="text-normal">{size} MB</p>
     </div>
   )
 }
