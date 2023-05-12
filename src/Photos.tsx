@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { usePhotosStore } from "./photos";
+import { usePhotosStore } from "./photosStore";
 import { Tab } from "./components/Tab";
 import { PhotoGrid } from "./PhotoGrid";
 

@@ -1,5 +1,5 @@
 import { FileDetails } from "./FileDetails";
-import { Photo, usePhotosStore } from "./photos";
+import { Photo, usePhotosStore } from "./photosStore";
 import { bytesToMB } from "./utils";
 
 type PhotoGridProps = {

@@ -1,7 +1,7 @@
 import { FileDetails } from "./FileDetails";
 import InfoRow from "./InfoList";
 import { Section } from "./components/Section";
-import { Photo, usePhotosStore } from "./photos";
+import { usePhotosStore } from "./photosStore";
 import { bytesToMB, displayFullDate } from "./utils";
 import { ReactComponent as Like } from "./like.svg"
 
