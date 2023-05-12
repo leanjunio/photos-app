@@ -5,12 +5,14 @@ import { usePhotosStore } from "./photosStore";
 import { bytesToMB, displayFullDate } from "./utils";
 import { ReactComponent as Like } from "./like.svg"
 
-type SidebarProps = {
-  currentPhoto?: Photo;
-}
-
-export function Sidebar({ currentPhoto }: SidebarProps) {
-  const { deletePhoto, toggleLike } = usePhotosStore(state => ({ deletePhoto: state.deletePhoto, toggleLike: state.toggleLike }));
+export function Sidebar() {
+  const { current, photos, deletePhoto, toggleLike } = usePhotosStore(state => ({
+    current: state.current,
+    photos: state.photos,
+    deletePhoto: state.deletePhoto,
+    toggleLike: state.toggleLike
+  }));
+  const currentPhoto = photos.find(photo => photo.id === current);
 
   const infoSectionData = [
     {
