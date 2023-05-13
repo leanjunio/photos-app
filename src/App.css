@@ -6,6 +6,10 @@
   background-color: #f7fafc;
 }
 
+.page__title {
+  padding: .25em 0;
+}
+
 .nav {
   margin-bottom: 25px;
   padding: 15px 0;
