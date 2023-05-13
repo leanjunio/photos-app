@@ -6,7 +6,14 @@ function App() {
   return (
     <div className='content'>
       <Photos />
-      <Sidebar />
+      {window.innerWidth > 768 ? (
+        <Sidebar />
+      ) : (
+        <dialog className="sidebar-dialog">
+          <Sidebar />
+        </dialog>
+      )}
+
     </div >
   );
 }

@@ -14,7 +14,14 @@ export function PhotoGrid({ currentList, onPhotoSelect }: PhotoGridProps) {
       {currentList.length === 0 ? <p>No photos found</p> : (
         <div className="photo-grid">
           {currentList.map((photo) => (
-            <div key={photo.id} className="photo-grid__wrapper" onClick={() => onPhotoSelect(photo.id)}>
+            <div key={photo.id} className="photo-grid__wrapper" onClick={() => {
+              onPhotoSelect(photo.id);
+
+              if (window.innerWidth <= 768) {
+                const dialog = document.querySelector('.sidebar-dialog');
+                (dialog as HTMLDialogElement)?.showModal()
+              }
+            }}>
               <img className={`photo-grid__img ${current === photo.id ? 'photo-grid__img--selected' : ''}`} src={photo.url} alt={photo.filename} />
               <FileDetails
                 filename={photo.filename}
@@ -23,7 +30,8 @@ export function PhotoGrid({ currentList, onPhotoSelect }: PhotoGridProps) {
             </div>
           ))}
         </div>
-      )}
-    </main>
+      )
+      }
+    </main >
   )
 }
