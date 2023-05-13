@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { usePhotosStore } from "./photosStore";
 import { Tab } from "./components/Tab";
 import { PhotoGrid } from "./PhotoGrid";
+import { Page } from "./components/Page";
 
 export function Photos() {
   const [activeTab, setActiveTab] = useState<number>(0);
@@ -26,19 +27,14 @@ export function Photos() {
     setActiveTab(tab);
   }
 
-  if (loading) {
-    return (
-      <div className="page">
-        <p>Loading...</p>
-      </div>
-    );
-  }
-
   return (
-    <div className="page">
-      <h1>Photos</h1>
-      <Tab tabs={tabs} activeTab={activeTab} onTabChange={changeTab} />
-      <PhotoGrid currentList={lists[activeTab]} onPhotoSelect={onSelect} />
-    </div>
+    <Page title="Photos">
+      {loading ? (<p>Loading...</p>) : (
+        <>
+          <Tab tabs={tabs} activeTab={activeTab} onTabChange={changeTab} />
+          <PhotoGrid currentList={lists[activeTab]} onPhotoSelect={onSelect} />
+        </>
+      )}
+    </Page>
   );
 }
