@@ -60,21 +60,31 @@ export function Sidebar() {
             </section>
             <Section label='Description'>
               <p className='text-normal sidebar__description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              {window.innerWidth <= 768 && (
-                <button onClick={() => {
-                  (document.querySelector('.sidebar-dialog') as HTMLDialogElement)?.close();
-                }} className='sidebar__delete'>
-                  Cancel
+              {window.innerWidth <= 768 ? (
+                <>
+
+                  <button onClick={() =>
+                    (document.querySelector('.sidebar-dialog') as HTMLDialogElement)?.close()
+                  } className='sidebar__delete'>
+                    Cancel
+                  </button>
+                  <button onClick={() => {
+                    (document.querySelector('.sidebar-dialog') as HTMLDialogElement)?.close()
+                    deletePhoto(currentPhoto.id)
+                  }} className='sidebar__delete'>
+                    Delete
+                  </button>
+                </>
+              ) : (
+                <button onClick={() => deletePhoto(currentPhoto.id)} className='sidebar__delete'>
+                  Delete
                 </button>
               )}
 
-              <button onClick={() => deletePhoto(currentPhoto.id)} className='sidebar__delete'>
-                Delete
-              </button>
             </Section>
           </>
         )}
       </div>
-    </aside>
+    </aside >
   )
 }
